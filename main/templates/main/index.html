@@ -1,0 +1,86 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code - Generator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light shadow fixed-top">
+        <div class="container">
+            <a class="navbar-brand text-white" style="font-family: Montserrat;" href="#">QR Code Generator</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div> -->
+        </div>
+    </nav>
+
+    <!-- Full Page Image Header with Vertically Centered Content -->
+    <header class="masthead">
+        <div class="overlay"></div>
+        <div class="container h-100">
+            <div class="row h-100 align-items-center px-2">
+
+                <div class="col-12 col-lg-5 text-white">
+                    <h1 class="font-weight-light text-center text-lg-left" style="margin-top:1em;">QR Code Generator</h1>
+                    <p class="lead">Generate QR Code for your web links for free</p>
+                    <div class="searchbar">
+                        {% csrf_token %}
+                        <input class="search_input" type="text" id="link" placeholder="enter your link">
+                        <button class="search_icon" id="generateBtn"><i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-3 my-2"></div>
+
+                <div class="col-12 col-lg-4 bg-white output" id="output">
+                    <img src="{% static 'main/images/default.png' %}" alt="" id="output_qr">
+                    <div class="text-center">
+                        <a href="{% static 'main/images/default.png' %}" id="downloadBtn" class="btn download-btn" download>
+                            Download 
+                            <i class="fas fa-download"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="{% static 'main/js/script.js' %}"></script>
+
+</body>
+
+</html>
